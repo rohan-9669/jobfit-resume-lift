@@ -10,6 +10,10 @@ import Upload from "./pages/Upload";
 import Analysis from "./pages/Analysis";
 import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
+import HowItWorks from "./pages/HowItWorks";
+import Pricing from "./pages/Pricing";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -27,6 +31,10 @@ function App() {
             <Route path="/upload" element={<Upload />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

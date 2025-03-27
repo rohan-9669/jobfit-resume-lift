@@ -59,7 +59,7 @@ const Index = () => {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="#">Learn More</Link>
+                  <Link to="/how-it-works">Learn More</Link>
                 </Button>
               </div>
               <div className="mt-8 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
@@ -190,7 +190,7 @@ const Index = () => {
               Start optimizing your resume today and increase your chances of getting interviews.
             </p>
             <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-              <Link to="/upload">
+              <Link to="/signup">
                 Get Started for Free
               </Link>
             </Button>

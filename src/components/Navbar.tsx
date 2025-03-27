@@ -45,13 +45,17 @@ const Navbar = () => {
           <nav className="hidden md:flex space-x-10">
             <NavLink to="/" active={location.pathname === "/"}>Home</NavLink>
             <NavLink to="/upload" active={location.pathname === "/upload"}>Upload</NavLink>
-            <NavLink to="#" active={false}>How It Works</NavLink>
-            <NavLink to="#" active={false}>Pricing</NavLink>
+            <NavLink to="/how-it-works" active={location.pathname === "/how-it-works"}>How It Works</NavLink>
+            <NavLink to="/pricing" active={location.pathname === "/pricing"}>Pricing</NavLink>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">Sign In</Button>
-            <Button size="sm">Get Started</Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/signin">Sign In</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link to="/signup">Get Started</Link>
+            </Button>
           </div>
 
           <button
@@ -74,13 +78,17 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink to="/" active={location.pathname === "/"}>Home</MobileNavLink>
             <MobileNavLink to="/upload" active={location.pathname === "/upload"}>Upload</MobileNavLink>
-            <MobileNavLink to="#" active={false}>How It Works</MobileNavLink>
-            <MobileNavLink to="#" active={false}>Pricing</MobileNavLink>
+            <MobileNavLink to="/how-it-works" active={location.pathname === "/how-it-works"}>How It Works</MobileNavLink>
+            <MobileNavLink to="/pricing" active={location.pathname === "/pricing"}>Pricing</MobileNavLink>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5 space-x-2">
-              <Button variant="outline" size="sm" className="w-full">Sign In</Button>
-              <Button size="sm" className="w-full">Get Started</Button>
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <Link to="/signin">Sign In</Link>
+              </Button>
+              <Button size="sm" className="w-full" asChild>
+                <Link to="/signup">Get Started</Link>
+              </Button>
             </div>
           </div>
         </div>
