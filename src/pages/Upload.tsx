@@ -68,10 +68,10 @@ const Upload = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div 
                     onClick={handleUploadResume}
-                    className="border border-gray-200 dark:border-gray-800 hover:border-purple-500 dark:hover:border-purple-500 rounded-xl p-6 text-center cursor-pointer transition-colors"
+                    className="border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 rounded-xl p-6 text-center cursor-pointer transition-colors"
                   >
-                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FileText className="w-8 h-8 text-purple-600" />
+                    <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <FileText className="w-8 h-8 text-blue-600" />
                     </div>
                     <h3 className="font-medium text-lg mb-2">Upload Existing Resume</h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -81,10 +81,10 @@ const Upload = () => {
                   
                   <div 
                     onClick={handleStartFresh}
-                    className="border border-gray-200 dark:border-gray-800 hover:border-purple-500 dark:hover:border-purple-500 rounded-xl p-6 text-center cursor-pointer transition-colors"
+                    className="border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 rounded-xl p-6 text-center cursor-pointer transition-colors"
                   >
-                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <BriefcaseIcon className="w-8 h-8 text-purple-600" />
+                    <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BriefcaseIcon className="w-8 h-8 text-blue-600" />
                     </div>
                     <h3 className="font-medium text-lg mb-2">Start From Scratch</h3>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
@@ -212,7 +212,7 @@ const Upload = () => {
                       <div className="pt-4 flex justify-end">
                         <Button 
                           onClick={handleSubmit}
-                          className="bg-purple-600 hover:bg-purple-700 text-white"
+                          className="bg-blue-600 hover:bg-blue-700 text-white"
                           disabled={!jobTitle || !company || !jobDescription}
                         >
                           Create Tailored Resume
@@ -225,7 +225,7 @@ const Upload = () => {
             )}
             
             <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400 animate-fade-in">
-              <p>By uploading your resume, you agree to our <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline">Terms of Service</a> and <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline">Privacy Policy</a>.</p>
+              <p>By uploading your resume, you agree to our <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Privacy Policy</a>.</p>
             </div>
           </div>
         </div>

@@ -46,13 +46,13 @@ const Index = () => {
             <div className="w-full lg:w-1/2 lg:pr-8 animate-fade-in">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
                 <span className="block">Get Sureshot Shortlisting</span>
-                <span className="block text-purple-600 dark:text-purple-400">With AI-Optimized Precision</span>
+                <span className="block text-blue-600 dark:text-blue-400">With AI-Optimized Precision</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
                 Our AI tailors your resume for each job application, ensuring an ATS score of 80+ and dramatically increasing your chances of being shortlisted.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
                   <Link to="/upload">
                     <Upload className="mr-2 h-5 w-5" />
                     Create Your Resume
@@ -70,13 +70,13 @@ const Index = () => {
             
             <div className="w-full lg:w-1/2 mt-12 lg:mt-0 animate-slide-up stagger-1">
               <div className="relative mx-auto max-w-md">
-                <div className="w-full h-full absolute -left-4 -top-4 bg-purple-100 dark:bg-purple-900/30 rounded-xl"></div>
-                <div className="w-full h-full absolute -right-4 -bottom-4 bg-purple-200 dark:bg-purple-800/30 rounded-xl"></div>
+                <div className="w-full h-full absolute -left-4 -top-4 bg-blue-100 dark:bg-blue-900/30 rounded-xl"></div>
+                <div className="w-full h-full absolute -right-4 -bottom-4 bg-blue-200 dark:bg-blue-800/30 rounded-xl"></div>
                 <div className="relative bg-white dark:bg-slate-800 shadow-lg rounded-xl p-6 border border-gray-200 dark:border-gray-700">
                   <div className="flex justify-between items-center mb-6">
                     <div className="flex items-center">
-                      <div className="h-10 w-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-3">
-                        <Building className="h-5 w-5 text-purple-600" />
+                      <div className="h-10 w-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3">
+                        <Building className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <div className="font-medium">Google</div>
@@ -104,13 +104,13 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="relative h-4 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mb-4">
-                    <div className="absolute left-0 top-0 h-full w-[92%] bg-gradient-to-r from-green-400 to-purple-500 rounded-full"></div>
+                    <div className="absolute left-0 top-0 h-full w-[92%] bg-gradient-to-r from-green-400 to-blue-500 rounded-full"></div>
                   </div>
                   <div className="mt-4 flex justify-between">
                     <Button variant="outline" size="sm">
                       <FileText className="h-4 w-4 mr-1" /> Compare
                     </Button>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                       <Download className="h-4 w-4 mr-1" /> Download
                     </Button>
                   </div>
@@ -126,7 +126,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              How TailoredResumeAI Works
+              How JobFitAI Works
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Our AI-powered platform creates hyper-tailored resumes designed to pass ATS systems and impress hiring managers.
@@ -175,15 +175,15 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">80+</div>
+              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">80+</div>
               <p className="text-gray-600 dark:text-gray-400">ATS score guaranteed on every optimized resume</p>
             </div>
             <div className="text-center p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">3x</div>
+              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">3x</div>
               <p className="text-gray-600 dark:text-gray-400">higher interview rate with hyper-tailored resumes</p>
             </div>
             <div className="text-center p-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">1</div>
+              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">1</div>
               <p className="text-gray-600 dark:text-gray-400">free resume build for every user</p>
             </div>
           </div>
@@ -200,7 +200,7 @@ const Index = () => {
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
               Create your first AI-optimized resume for free and dramatically increase your interview chances.
             </p>
-            <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
               <Link to="/signup">
                 Get Started for Free
               </Link>

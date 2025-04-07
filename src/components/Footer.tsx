@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
-              JobFit
+              JobFitAI
             </Link>
             <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
               Optimizing resumes for better ATS scores and landing your dream job.
@@ -69,7 +69,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <p className="text-gray-500 dark:text-gray-400 text-xs text-center">
-            &copy; {new Date().getFullYear()} JobFit. All rights reserved.
+            &copy; {new Date().getFullYear()} JobFitAI. All rights reserved.
           </p>
         </div>
       </div>
