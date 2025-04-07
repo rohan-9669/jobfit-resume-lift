@@ -106,7 +106,10 @@ const Upload = () => {
                       <ResumeUploader />
                       
                       <div className="flex justify-end pt-4">
-                        <Button onClick={() => document.querySelector('[data-value="details"]')?.click()}>
+                        <Button onClick={() => {
+                          const detailsTab = document.querySelector('[data-value="details"]') as HTMLElement;
+                          if (detailsTab) detailsTab.click();
+                        }}>
                           Continue to Job Details
                         </Button>
                       </div>
