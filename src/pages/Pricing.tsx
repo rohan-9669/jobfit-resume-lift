@@ -23,10 +23,10 @@ const PricingTier = ({
   popular?: boolean;
 }) => {
   return (
-    <div className={`bg-white dark:bg-slate-900 rounded-xl shadow-sm border ${popular ? 'border-blue-500 dark:border-blue-500' : 'border-gray-200 dark:border-gray-800'} p-6 md:p-8 flex flex-col h-full relative ${popular ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}>
+    <div className={`bg-white dark:bg-slate-900 rounded-xl shadow-sm border ${popular ? 'border-purple-500 dark:border-purple-500' : 'border-gray-200 dark:border-gray-800'} p-6 md:p-8 flex flex-col h-full relative ${popular ? 'ring-2 ring-purple-500 ring-opacity-50' : ''}`}>
       {popular && (
         <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/3">
-          <span className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
+          <span className="bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
         </div>
       )}
       
@@ -53,7 +53,7 @@ const PricingTier = ({
       </ul>
       
       <div>
-        <Button asChild className={`w-full ${popular ? 'bg-blue-600 hover:bg-blue-700 text-white' : ''}`} variant={popular ? 'default' : 'outline'}>
+        <Button asChild className={`w-full ${popular ? 'bg-purple-600 hover:bg-purple-700 text-white' : ''}`} variant={popular ? 'default' : 'outline'}>
           <Link to={buttonLink}>{buttonText}</Link>
         </Button>
       </div>
@@ -64,52 +64,36 @@ const PricingTier = ({
 const Pricing = () => {
   const pricingTiers = [
     {
-      name: 'Basic',
+      name: 'Free',
       price: 'Free',
-      description: 'Get started with essential features',
+      description: 'Try us out with one free resume',
       features: [
-        { included: true, text: '3 resume optimizations per month' },
-        { included: true, text: 'Basic ATS compatibility analysis' },
-        { included: true, text: 'PDF downloads' },
-        { included: false, text: 'Advanced keyword optimization' },
-        { included: false, text: 'Industry-specific suggestions' },
+        { included: true, text: '1 resume build per account' },
+        { included: true, text: 'AI-powered resume optimization' },
+        { included: true, text: 'ATS score analysis' },
+        { included: true, text: 'PDF download' },
+        { included: false, text: 'Multiple resume versions' },
         { included: false, text: 'Priority support' },
       ],
       buttonText: 'Get Started',
-      buttonLink: '/upload',
+      buttonLink: '/signup',
       popular: false
     },
     {
-      name: 'Professional',
-      price: '$9.99',
-      description: 'For serious job seekers',
+      name: 'Premium',
+      price: '$12',
+      description: 'Perfect for active job seekers',
       features: [
-        { included: true, text: 'Unlimited resume optimizations' },
-        { included: true, text: 'Advanced ATS compatibility analysis' },
-        { included: true, text: 'PDF & DOCX downloads' },
-        { included: true, text: 'Advanced keyword optimization' },
-        { included: true, text: 'Industry-specific suggestions' },
-        { included: false, text: 'Priority support' },
+        { included: true, text: '20 resume builds per month' },
+        { included: true, text: 'AI-powered resume optimization' },
+        { included: true, text: 'ATS score analysis' },
+        { included: true, text: 'PDF download' },
+        { included: true, text: 'Multiple resume versions' },
+        { included: true, text: 'Priority support' },
       ],
       buttonText: 'Upgrade Now',
       buttonLink: '/signup',
       popular: true
-    },
-    {
-      name: 'Premium',
-      price: '$19.99',
-      description: 'Complete career solution',
-      features: [
-        { included: true, text: 'Unlimited resume optimizations' },
-        { included: true, text: 'Advanced ATS compatibility analysis' },
-        { included: true, text: 'All document formats' },
-        { included: true, text: 'Advanced keyword optimization' },
-        { included: true, text: 'Industry-specific suggestions' },
-        { included: true, text: 'Priority support' },
-      ],
-      buttonText: 'Go Premium',
-      buttonLink: '/signup',
-      popular: false
     }
   ];
 
@@ -125,11 +109,11 @@ const Pricing = () => {
                 Simple, Transparent Pricing
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                Choose the plan that's right for you and start landing more interviews
+                Start with a free resume and upgrade when you're ready
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-3xl">
               {pricingTiers.map((tier, index) => (
                 <PricingTier key={index} {...tier} />
               ))}
@@ -141,16 +125,16 @@ const Pricing = () => {
               </h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">Can I cancel my subscription anytime?</h4>
+                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">How many resumes can I create with the free tier?</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">You can create one free resume with our service. This gives you a chance to see the quality and effectiveness of our AI optimization.</p>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">Can I cancel my Premium subscription anytime?</h4>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">Yes, you can cancel your subscription at any time. Your benefits will continue until the end of your billing period.</p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">Is there a limit to how many resumes I can optimize?</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">The Basic plan includes 3 resume optimizations per month. Professional and Premium plans have unlimited optimizations.</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">Can I change plans later?</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">Absolutely! You can upgrade or downgrade your plan at any time through your account settings.</p>
+                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">What does "20 resume builds" actually mean?</h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">This means you can create 20 different optimized resumes tailored for different jobs each month with the Premium plan.</p>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -36,15 +36,15 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
-                JobFit
+              <span className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
+                TailoredResumeAI
               </span>
             </Link>
           </div>
 
           <nav className="hidden md:flex space-x-10">
             <NavLink to="/" active={location.pathname === "/"}>Home</NavLink>
-            <NavLink to="/upload" active={location.pathname === "/upload"}>Upload</NavLink>
+            <NavLink to="/upload" active={location.pathname === "/upload"}>Create Resume</NavLink>
             <NavLink to="/how-it-works" active={location.pathname === "/how-it-works"}>How It Works</NavLink>
             <NavLink to="/pricing" active={location.pathname === "/pricing"}>Pricing</NavLink>
           </nav>
@@ -53,7 +53,7 @@ const Navbar = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/signin">Sign In</Link>
             </Button>
-            <Button size="sm" asChild>
+            <Button size="sm" className="bg-purple-600 hover:bg-purple-700" asChild>
               <Link to="/signup">Get Started</Link>
             </Button>
           </div>
@@ -77,16 +77,17 @@ const Navbar = () => {
         <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <MobileNavLink to="/" active={location.pathname === "/"}>Home</MobileNavLink>
-            <MobileNavLink to="/upload" active={location.pathname === "/upload"}>Upload</MobileNavLink>
+            <MobileNavLink to="/upload" active={location.pathname === "/upload"}>Create Resume</MobileNavLink>
             <MobileNavLink to="/how-it-works" active={location.pathname === "/how-it-works"}>How It Works</MobileNavLink>
             <MobileNavLink to="/pricing" active={location.pathname === "/pricing"}>Pricing</MobileNavLink>
+            <MobileNavLink to="/dashboard" active={location.pathname === "/dashboard"}>Dashboard</MobileNavLink>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center px-5 space-x-2">
               <Button variant="outline" size="sm" className="w-full" asChild>
                 <Link to="/signin">Sign In</Link>
               </Button>
-              <Button size="sm" className="w-full" asChild>
+              <Button size="sm" className="w-full bg-purple-600 hover:bg-purple-700" asChild>
                 <Link to="/signup">Get Started</Link>
               </Button>
             </div>
@@ -107,8 +108,8 @@ const NavLink = ({ to, children, active }: NavLinkProps) => (
   <Link
     to={to}
     className={cn(
-      "text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400",
-      active ? "text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-200"
+      "text-sm font-medium transition-colors hover:text-purple-600 dark:hover:text-purple-400",
+      active ? "text-purple-600 dark:text-purple-400" : "text-gray-700 dark:text-gray-200"
     )}
   >
     {children}
@@ -121,7 +122,7 @@ const MobileNavLink = ({ to, children, active }: NavLinkProps) => (
     className={cn(
       "block px-3 py-2 rounded-md text-base font-medium transition-colors",
       active
-        ? "bg-blue-50 text-blue-600 dark:bg-slate-800 dark:text-blue-400"
+        ? "bg-purple-50 text-purple-600 dark:bg-slate-800 dark:text-purple-400"
         : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-slate-800"
     )}
   >

@@ -14,6 +14,8 @@ import HowItWorks from "./pages/HowItWorks";
 import Pricing from "./pages/Pricing";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
+import Comparison from "./pages/Comparison";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -31,6 +33,8 @@ function App() {
             <Route path="/upload" element={<Upload />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/comparison" element={<Comparison />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/signin" element={<SignIn />} />
