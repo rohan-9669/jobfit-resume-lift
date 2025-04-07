@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Upload, FileText, Check, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useToast } from '@/hooks/use-toast';
-
-// These types are for TypeScript support
-type PDFParseType = typeof import('pdf-parse').default;
-type MammothType = typeof import('mammoth');
 
 interface ResumeUploaderProps {
   className?: string;
@@ -17,12 +12,9 @@ interface ResumeUploaderProps {
 const ResumeUploader = ({ className }: ResumeUploaderProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const [extractedText, setExtractedText] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-  const { toast } = useToast();
   
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -50,38 +42,7 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
     return true;
   };
   
-  const extractTextFromFile = async (file: File): Promise<string> => {
-    setIsProcessing(true);
-    try {
-      if (file.type === 'application/pdf') {
-        // Dynamically import pdf-parse only when needed
-        const pdfParse = (await import('pdf-parse')).default as unknown as PDFParseType;
-        const arrayBuffer = await file.arrayBuffer();
-        const pdfData = new Uint8Array(arrayBuffer);
-        const result = await pdfParse(pdfData);
-        return result.text;
-      } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-        // Dynamically import mammoth only when needed
-        const mammoth = (await import('mammoth')) as unknown as MammothType;
-        const arrayBuffer = await file.arrayBuffer();
-        const result = await mammoth.extractRawText({ arrayBuffer });
-        return result.value;
-      }
-      return '';
-    } catch (error) {
-      console.error('Error extracting text:', error);
-      toast({
-        title: "Error processing file",
-        description: "There was an issue extracting text from your file.",
-        variant: "destructive",
-      });
-      return '';
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-  
-  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
     
@@ -89,21 +50,15 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
       const droppedFile = e.dataTransfer.files[0];
       if (validateFile(droppedFile)) {
         setFile(droppedFile);
-        const text = await extractTextFromFile(droppedFile);
-        setExtractedText(text);
-        console.log('Extracted text:', text.substring(0, 100) + '...');
       }
     }
   };
   
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const selectedFile = e.target.files[0];
       if (validateFile(selectedFile)) {
         setFile(selectedFile);
-        const text = await extractTextFromFile(selectedFile);
-        setExtractedText(text);
-        console.log('Extracted text:', text.substring(0, 100) + '...');
       }
     }
   };
@@ -114,11 +69,8 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
   
   const handleSubmit = () => {
     if (file) {
-      // Store the extracted text in localStorage or state management
-      if (extractedText) {
-        localStorage.setItem('resumeText', extractedText);
-      }
-      // Navigate to analysis page
+      // In a real application, here we would upload the file to the server
+      // For now, let's just navigate to the analysis page
       navigate('/analysis');
     }
   };
@@ -131,7 +83,7 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
           isDragging 
             ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20" 
             : "border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/50",
-          file ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20" : ""
+          file ? "border-green-500 bg-green-50 dark:bg-green-900/20" : ""
         )}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -148,8 +100,8 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
         <div className="flex flex-col items-center justify-center py-4">
           {file ? (
             <>
-              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mb-4">
-                <Check className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mb-4">
+                <Check className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
                 {file.name}
@@ -157,16 +109,12 @@ const ResumeUploader = ({ className }: ResumeUploaderProps) => {
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
                 {(file.size / 1024).toFixed(2)} KB
               </p>
-              {isProcessing ? (
-                <p className="text-sm text-blue-500 animate-pulse">Processing file...</p>
-              ) : (
-                <Button 
-                  onClick={handleSubmit}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
-                >
-                  {extractedText ? 'Continue' : 'Processing...'}
-                </Button>
-              )}
+              <Button 
+                onClick={handleSubmit}
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                Continue
+              </Button>
             </>
           ) : (
             <>
