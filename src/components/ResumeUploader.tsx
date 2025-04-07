@@ -6,8 +6,7 @@ import { Upload, FileText, Check, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 
-// These imports will be used through dynamic imports when needed
-// to avoid loading these libraries on the client side until required
+// These types are for TypeScript support
 type PDFParseType = typeof import('pdf-parse').default;
 type MammothType = typeof import('mammoth');
 
