@@ -1,50 +1,37 @@
 
-import React from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Upload from "./pages/Upload";
-import Analysis from "./pages/Analysis";
-import Results from "./pages/Results";
-import NotFound from "./pages/NotFound";
-import HowItWorks from "./pages/HowItWorks";
-import Pricing from "./pages/Pricing";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Dashboard from "./pages/Dashboard";
-import Comparison from "./pages/Comparison";
+import { Routes, Route } from 'react-router-dom';
+import Index from '@/pages/Index';
+import Dashboard from '@/pages/Dashboard';
+import Upload from '@/pages/Upload';
+import Analysis from '@/pages/Analysis';
+import Results from '@/pages/Results';
+import Comparison from '@/pages/Comparison';
+import HowItWorks from '@/pages/HowItWorks';
+import Pricing from '@/pages/Pricing';
+import SignIn from '@/pages/SignIn';
+import SignUp from '@/pages/SignUp';
+import NotFound from '@/pages/NotFound';
+import ActionBar from '@/components/ActionBar';
+import './App.css';
 
-// Create a client
-const queryClient = new QueryClient();
-
-// Define App as a function component
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/upload" element={<Upload />} />
-            <Route path="/analysis" element={<Analysis />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/comparison" element={<Comparison />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <>
+      <ActionBar />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/analysis" element={<Analysis />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/comparison" element={<Comparison />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
