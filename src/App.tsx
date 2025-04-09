@@ -12,11 +12,13 @@ import SignIn from '@/pages/SignIn';
 import SignUp from '@/pages/SignUp';
 import NotFound from '@/pages/NotFound';
 import ActionBar from '@/components/ActionBar';
+import { Toaster } from "@/components/ui/toaster";
 import './App.css';
 
 function App() {
   return (
     <>
+      <Toaster />
       <ActionBar />
       <Routes>
         <Route path="/" element={<Index />} />
